@@ -1,0 +1,36 @@
+input,
+select {
+  border:0px;
+  outline:0px;
+  height: 35px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+input {
+  padding: 0px 15px 0px 15px;
+  width: 80px;
+}
+
+select {
+  margin-left: 10px;
+  width: 60px;
+}
+
+.wrapper {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type='number'],
+input[type="number"]:hover,
+input[type="number"]:focus {
+    appearance: none;
+    -moz-appearance: textfield;
+}

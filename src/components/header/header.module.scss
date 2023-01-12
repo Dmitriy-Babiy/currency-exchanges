@@ -1,0 +1,45 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100px;
+}
+
+.logo {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.date {
+  color: #fff;
+  font-size: 14px;
+}
+
+.button {
+  background: #eee;
+  color: #088;
+  text-decoration: none;
+  display: block;
+  width: 90px;
+  text-align: center;
+  margin: 20px auto;
+  padding: 10px 10px;
+  transition: all 0.3s;
+  margin-left: 30px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+
+  &:hover {
+    box-shadow: 0px -5px 0 #088 inset;
+  }
+}
