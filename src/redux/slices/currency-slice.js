@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { requestEditing } from '../../utils/request-editing';
-import { getCurrencyFromLS } from '../../utils/getCurrencyFromLS';
+import { getCurrencyFromLS } from '../../utils/get-сurrency-fromLS';
 
 
 export const fetchCurrency = createAsyncThunk('currency', async () => {
