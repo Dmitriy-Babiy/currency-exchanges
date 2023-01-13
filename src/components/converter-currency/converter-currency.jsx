@@ -1,21 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {getToCurrency, getFromCurrency} from '../../redux/slices/currency-slice';
 import CurrencyRow from './components/currency-row';
 import styles from './converter-currency.module.scss';
-import { useSelector } from 'react-redux';
 
 export default function ConverterCurrency() {
+  const dispatch = useDispatch();
   const data = useSelector((state) => state.currency.currencyData);
+  const fromCurrency = useSelector((state) => state.currency.fromCurrency);
+  const toCurrency = useSelector((state) => state.currency.toCurrency);
   const currencyOptions = Object.keys(data.Valute);
-  const [fromCurrency, setFromCurrency] = useState('USD');
-  const [toCurrency, setToCurrency] = useState('EUR');
+
   const [valueCurrency, setValueCurrency] = useState('');
   const [amount, setAmount] = useState(1);
   const [amountInFromCurrency, setAmountInFromCurrency] = useState(true);
+  const isMounted = useRef(false);
 
   useEffect(() => {
-      setValueCurrency(
-        data.Valute[fromCurrency].Value / data.Valute[toCurrency].Value
-      );
+    if (isMounted.current) {
+      localStorage.setItem('currency', JSON.stringify({fromCurrency: fromCurrency, toCurrency: toCurrency,}))
+    }
+    isMounted.current = true;
+    setValueCurrency(
+      data.Valute[fromCurrency].Value / data.Valute[toCurrency].Value
+    );
   }, [fromCurrency, toCurrency]);
 
   let toAmount, fromAmount;
@@ -42,14 +50,14 @@ export default function ConverterCurrency() {
       <h1 className={styles.title}>Конвертер валют</h1>
       <div className={styles.wrapper}>
         <CurrencyRow
-          onChangeCurrency={(e) => setFromCurrency(e.target.value)}
+          onChangeCurrency={(e) => dispatch(getFromCurrency(e.target.value))}
           currencyOptions={currencyOptions}
           selectedCurrency={fromCurrency}
           onChangeAmount={handleFromAmountChange}
           amount={fromAmount}
         />
         <CurrencyRow
-          onChangeCurrency={(e) => setToCurrency(e.target.value)}
+          onChangeCurrency={(e) => dispatch(getToCurrency(e.target.value))}
           currencyOptions={currencyOptions}
           selectedCurrency={toCurrency}
           onChangeAmount={handleToAmountChange}

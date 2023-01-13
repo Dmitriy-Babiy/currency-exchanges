@@ -1,27 +1,38 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { requestEditing } from '../../utils/request-editing';
+import { getCurrencyFromLS } from '../../utils/getCurrencyFromLS';
+
 
 export const fetchCurrency = createAsyncThunk('currency', async () => {
   const response  = await axios.get('https://www.cbr-xml-daily.ru/daily_json.js');
-  for (let i in response.data.Valute) {
-    if (response.data.Valute[i].Nominal > 1)
-    response.data.Valute[i].Value = response.data.Valute[i].Value / response.data.Valute[i].Nominal
-    response.data.Valute[i].Previous = response.data.Valute[i].Previous / response.data.Valute[i].Nominal
-  }
-  response.data.Valute.RUB = {'Value' : 1, 'Nominal': 1}
+  requestEditing(response)
   return response.data;
 });
+
+const currencyLS = getCurrencyFromLS()
 
 const initialState = {
   currencyData: {},
   status: 'loading',
   requestDate: '',
+  fromCurrency: currencyLS.fromCurrency,
+  toCurrency: currencyLS.toCurrency,
 };
+
+
 
 export const currencySlice = createSlice({
   name: 'currency',
   initialState,
-  reducers: {},
+  reducers: {
+    getToCurrency: (state, action) => {
+      state.toCurrency = action.payload
+    },
+    getFromCurrency: (state, action) => {
+      state.fromCurrency = action.payload
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCurrency.pending, (state) => {
@@ -38,4 +49,5 @@ export const currencySlice = createSlice({
   },
 });
 
+export const { getToCurrency, getFromCurrency } = currencySlice.actions
 export const currencyReducer = currencySlice.reducer;
