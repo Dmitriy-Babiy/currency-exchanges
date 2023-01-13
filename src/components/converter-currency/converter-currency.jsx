@@ -10,8 +10,7 @@ export default function ConverterCurrency() {
   const fromCurrency = useSelector((state) => state.currency.fromCurrency);
   const toCurrency = useSelector((state) => state.currency.toCurrency);
   const currencyOptions = Object.keys(data.Valute);
-
-  const [valueCurrency, setValueCurrency] = useState('');
+  
   const [amount, setAmount] = useState(1);
   const [amountInFromCurrency, setAmountInFromCurrency] = useState(true);
   const isMounted = useRef(false);
@@ -21,18 +20,15 @@ export default function ConverterCurrency() {
       localStorage.setItem('currency', JSON.stringify({fromCurrency: fromCurrency, toCurrency: toCurrency,}))
     }
     isMounted.current = true;
-    setValueCurrency(
-      data.Valute[fromCurrency].Value / data.Valute[toCurrency].Value
-    );
   }, [fromCurrency, toCurrency]);
-
-  let toAmount, fromAmount;
+  
+  let toAmount, fromAmount, ValueCurrency = data.Valute[fromCurrency].Value / data.Valute[toCurrency].Value;;
   if (amountInFromCurrency) {
     fromAmount = amount;
-    toAmount = amount * valueCurrency;
+    toAmount = amount * ValueCurrency;
   } else {
     toAmount = amount;
-    fromAmount = amount / valueCurrency;
+    fromAmount = amount / ValueCurrency;
   }
 
   function handleFromAmountChange(e) {
