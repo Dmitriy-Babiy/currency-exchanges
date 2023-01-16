@@ -22,7 +22,7 @@ export default function ConverterCurrency() {
     isMounted.current = true;
   }, [fromCurrency, toCurrency]);
   
-  let toAmount, fromAmount, ValueCurrency = data.Valute[fromCurrency].Value / data.Valute[toCurrency].Value;;
+  let toAmount, fromAmount, ValueCurrency = data.Valute[fromCurrency].Value / data.Valute[toCurrency].Value;
   if (amountInFromCurrency) {
     fromAmount = amount;
     toAmount = amount * ValueCurrency;

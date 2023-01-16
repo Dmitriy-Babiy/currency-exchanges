@@ -1,5 +1,5 @@
 import { ClipLoader } from 'react-spinners';
-import styles from './loader.module.scss'
+import styles from './loader.module.scss';
 
 export default function Loader() {
   return (

@@ -3,7 +3,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { requestEditing } from '../../utils/request-editing';
 import { getCurrencyFromLS } from '../../utils/get-сurrency-fromLS';
 
-
 export const fetchCurrency = createAsyncThunk('currency', async () => {
   const response  = await axios.get('https://www.cbr-xml-daily.ru/daily_json.js');
   requestEditing(response)
@@ -19,8 +18,6 @@ const initialState = {
   fromCurrency: currencyLS.fromCurrency,
   toCurrency: currencyLS.toCurrency,
 };
-
-
 
 export const currencySlice = createSlice({
   name: 'currency',

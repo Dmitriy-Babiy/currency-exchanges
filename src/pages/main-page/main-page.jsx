@@ -8,7 +8,6 @@ import { fetchCurrency } from '../../redux/slices/currency-slice';
 import styles from './main-page.module.scss';
 
 export default function MainPage() {
-
   const dispatch = useDispatch();
   const status = useSelector((state) => state.currency.status);
 
@@ -18,16 +17,15 @@ export default function MainPage() {
 
   return (
     <div className={styles.container}>
-      {status === 'loading'
-        ? 
-        <Loader/>
-        :
+      {status === 'loading' ? (
+        <Loader />
+      ) : (
         <>
           <Header />
           <TableCurrency />
           <ConverterCurrency />
         </>
-      }
+      )}
     </div>
   );
 }

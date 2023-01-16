@@ -11,7 +11,7 @@ export default function Header() {
       <div className={styles.logo}>kozhindev-test-exchanges</div>
       <div className={styles.wrapper}>
         <div className={styles.date}>{requestDate}</div>
-        <button className={styles.button} onClick={() => {dispatch(fetchCurrency());}}>
+        <button className={styles.button} onClick={() => {dispatch(fetchCurrency())}}>
           <span>Обновить</span>
         </button>
       </div>

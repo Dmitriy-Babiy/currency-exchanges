@@ -30,6 +30,11 @@ th {
   font-weight: 500;
   color: #fff;
   text-transform: uppercase;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
 }
 
 td {
@@ -110,6 +115,7 @@ button {
   th {
     font-size: 9px;
   }
+
   td {
     font-size: 12px;
   }
@@ -119,6 +125,7 @@ button {
   th {
     font-size: 9px;
   }
+
   td {
     font-size: 12px;
   }

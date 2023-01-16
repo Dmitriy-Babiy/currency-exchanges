@@ -1,7 +1,7 @@
 input,
 select {
-  border:0px;
-  outline:0px;
+  border: 0px;
+  outline: 0px;
   height: 35px;
   border-radius: 5px;
   text-align: center;
@@ -25,12 +25,12 @@ select {
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
+  -webkit-appearance: none;
 }
 
 input[type='number'],
 input[type="number"]:hover,
 input[type="number"]:focus {
-    appearance: none;
-    -moz-appearance: textfield;
+  appearance: none;
+  -moz-appearance: textfield;
 }
