@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/kozhindev-test-exchanges/static/css/main.f11a31ad.css",
-    "main.js": "/kozhindev-test-exchanges/static/js/main.92e4f74f.js",
-    "index.html": "/kozhindev-test-exchanges/index.html",
-    "main.f11a31ad.css.map": "/kozhindev-test-exchanges/static/css/main.f11a31ad.css.map",
-    "main.92e4f74f.js.map": "/kozhindev-test-exchanges/static/js/main.92e4f74f.js.map"
+    "main.css": "/currency-exchanges/static/css/main.5db7b1c8.css",
+    "main.js": "/currency-exchanges/static/js/main.9945f95c.js",
+    "index.html": "/currency-exchanges/index.html",
+    "main.5db7b1c8.css.map": "/currency-exchanges/static/css/main.5db7b1c8.css.map",
+    "main.9945f95c.js.map": "/currency-exchanges/static/js/main.9945f95c.js.map"
   },
   "entrypoints": [
-    "static/css/main.f11a31ad.css",
-    "static/js/main.92e4f74f.js"
+    "static/css/main.5db7b1c8.css",
+    "static/js/main.9945f95c.js"
   ]
 }
